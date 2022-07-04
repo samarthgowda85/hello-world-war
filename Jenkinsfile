@@ -7,12 +7,12 @@ pipeline {
               sh 'git clone https://github.com/samarthgowda85/hello-world-war.git'
             }
         }
-      stage{'build step'} {
+      stage('build step') {
         steps {
           sh 'mvn package'
     }
 }
-      stage{'deploy step'} {
+      stage('deploy step') {
         steps {
           sh 'sudo cp /home/slave30/workspace/project_maven/target/hello-world-war-1.0.0.war /opt/apache-tomcat-9.0.64/webapps/'
         }
