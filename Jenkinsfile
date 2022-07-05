@@ -17,8 +17,8 @@ pipeline {
 }
         stage('deploy step') {
             steps{
-                sh 'sudo mv  /home/slave30/workspace/project_maven/target/hello-world-war-1.0.0.war  /home/slave30/workspace/project_maven/target/hello-world-war-1.0.0pipeline.war
-                sh 'sudo cp /home/slave30/workspace/project_maven/target/hello-world-war-1.0.0pipeline.war /opt/apache-tomcat-9.0.64/webapps/'
+           
+                sh 'sudo cp /home/slave30/workspace/project_maven/target/hello-world-war-1.0.0.war /opt/apache-tomcat-9.0.64/webapps/'
             }
         }
             }
