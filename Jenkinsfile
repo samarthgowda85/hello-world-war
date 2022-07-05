@@ -17,7 +17,7 @@ pipeline {
 }
         stage('deploy step') {
             steps{
-           sh 'sodo mv /home/slave30/workspace/helloworld_pipe/target/hello-world-war-1.0.0.war /home/slave30/workspace/helloworld_pipe/target/hello-world-war-1.0.0pipeline.war
+           sh 'sodo mv /home/slave30/workspace/helloworld_pipe/target/hello-world-war-1.0.0.war /home/slave30/workspace/helloworld_pipe/target/hello-world-war-1.0.0pipeline.war'
                 sh 'sudo cp /home/slave30/workspace/helloworld_pipe/target/hello-world-war-1.0.0pipeline.war /opt/apache-tomcat-9.0.64/webapps/'
             }
         }
