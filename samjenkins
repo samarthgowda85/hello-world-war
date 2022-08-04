@@ -3,7 +3,7 @@ pipeline {
     stages { 
          stage('Docker image') {
             steps {
-               sh 'cd /root/sam/hello-world-war'
+               sh 'cd /home/ubuntu/sam1/hello-world-war'
                 sh 'sudo docker build -t mydoc .'
             }
         }
