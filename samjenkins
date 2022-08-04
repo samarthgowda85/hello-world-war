@@ -3,16 +3,18 @@ pipeline {
     stages { 
          stage('Docker image') {
             steps {
-               sh 'cd /home/ubuntu/sam/hello-world-war'
-                sh 'sudo docker build -t myhost.'
+               sh 'cd /home/ubuntu/dockerdoc/hello-world-war'
+                sh 'sudo docker build -t mydoc .'
             }
         }
+        
         stage('docker login') {
             steps {
                sh 'sudo docker login --username=samarth1995 --password=DudePerfect@567'
-               sh 'sudo docker tag myhost:latest samarth1995/mydoc:latest'
+               sh 'sudo docker tag mydoc:latest samarth1995/mydoc:latest'
             }
         }
+        
         stage('push') {
             steps {
                 sh 'sudo docker push samarth1995/mydoc:latest'
@@ -30,4 +32,3 @@ pipeline {
         }
         }
         }
-        
