@@ -1,0 +1,33 @@
+pipeline {
+    agent {label 'slave2'}
+    stages { 
+         stage('Docker image') {
+            steps {
+               sh 'cd /home/ubuntu/sam/hello-world-war'
+                sh 'sudo docker build -t myhost.'
+            }
+        }
+        stage('docker login') {
+            steps {
+               sh 'sudo docker login --username=samarth1995 --password=DudePerfect@567'
+               sh 'sudo docker tag myhost:latest samarth1995/mydoc:latest'
+            }
+        }
+        stage('push') {
+            steps {
+                sh 'sudo docker push samarth1995/mydoc:latest'
+            }
+        }
+        stage('pull') {
+            steps {
+                sh 'sudo docker pull samarth1995/mydoc:latest'
+            }
+        }
+        stage('deploy') {
+            steps {
+                sh 'sudo docker run -d -p 9090:8080 samarth1995/mydoc:latest'
+            }
+        }
+        }
+        }
+        
